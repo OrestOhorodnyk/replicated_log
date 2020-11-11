@@ -15,14 +15,14 @@
 
 Output example:
 
-``
+```
             Name                    Command         State            Ports          
 ------------------------------------------------------------------------------------
 replicated_log_master_1        python -m app.main   Up      127.0.0.1:8000->8000/tcp
 replicated_log_secondary-1_1   python -m app.main   Up      127.0.0.1:8001->8000/tcp
 replicated_log_secondary-2_1   python -m app.main   Up      127.0.0.1:8002->8000/tcp
 replicated_log_secondary-3_1   python -m app.main   Up      127.0.0.1:8003->8000/tcp
-``
+```
 
 # Use the Swagger ui 
 
