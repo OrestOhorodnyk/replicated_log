@@ -3,14 +3,14 @@
 2) porst 8000-8003 are free
 3) jq instaled (not mandatory, just to pritify the curl response)
 
-##Build containers:
+## Build containers:
 ``cd replicated_log``
 ``docker-compose build``
 
-##Run container
+## Run container
 ``docker-compose up -d``
 
-## check the status
+## Check the status
 ``docker-compose ps``
 Output example:
 ``
