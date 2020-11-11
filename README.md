@@ -39,7 +39,7 @@ replicated_log_secondary-3_1   python -m app.main   Up      127.0.0.1:8003->8000
 ## Get messages from a master node:
 ``http://127.0.0.1:8000/docs#/default/list_msg_list_msg_get``
 
-To get the list of messages from secondary nodes, just use the curl from abou but replase the port with one of 8001-8003
+To get the list of messages from secondary nodes, just use the curl from above but replace the port with one of 8001-8003
 
 # Use a terminal 
 
@@ -67,7 +67,7 @@ Output example:
 ]
 ```
 
-To get the list of messages from secondary nodes, just use the curl from abou but replase the port with one of 8001-8003
+To get the list of messages from secondary nodes, just use the curl from above but replace the port with one of 8001-8003
 
 ## To stop and remove containers
 
