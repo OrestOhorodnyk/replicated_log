@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7308059c-22be-4de0-84ff-ec6bb4cba5bf" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectId" id="1k3q1RszmJDzFCgWbBVrEp7cQPl" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunManager">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="secondary_1" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/app" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7308059c-22be-4de0-84ff-ec6bb4cba5bf" name="Default Changelist" comment="" />
+      <created>1604939406582</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1604939406582</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="Dockerfile" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="418" y="211" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604939510745">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="418" y="211" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1604939510745" />
+    <state width="1897" height="399" key="GridCell.Tab.0.bottom" timestamp="1605104607985">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state width="1897" height="399" key="GridCell.Tab.0.bottom/0.27.1920.1053@0.27.1920.1053" timestamp="1605104607985" />
+    <state width="1897" height="399" key="GridCell.Tab.0.center" timestamp="1605104607984">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state width="1897" height="399" key="GridCell.Tab.0.center/0.27.1920.1053@0.27.1920.1053" timestamp="1605104607984" />
+    <state width="1897" height="399" key="GridCell.Tab.0.left" timestamp="1605104607983">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state width="1897" height="399" key="GridCell.Tab.0.left/0.27.1920.1053@0.27.1920.1053" timestamp="1605104607983" />
+    <state width="1897" height="399" key="GridCell.Tab.0.right" timestamp="1605104607985">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state width="1897" height="399" key="GridCell.Tab.0.right/0.27.1920.1053@0.27.1920.1053" timestamp="1605104607985" />
+    <state width="1897" height="399" key="GridCell.Tab.1.bottom" timestamp="1605104607988">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state width="1897" height="399" key="GridCell.Tab.1.bottom/0.27.1920.1053@0.27.1920.1053" timestamp="1605104607988" />
+    <state width="1897" height="399" key="GridCell.Tab.1.center" timestamp="1605104607987">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state width="1897" height="399" key="GridCell.Tab.1.center/0.27.1920.1053@0.27.1920.1053" timestamp="1605104607987" />
+    <state width="1897" height="399" key="GridCell.Tab.1.left" timestamp="1605104607986">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state width="1897" height="399" key="GridCell.Tab.1.left/0.27.1920.1053@0.27.1920.1053" timestamp="1605104607986" />
+    <state width="1897" height="399" key="GridCell.Tab.1.right" timestamp="1605104607988">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state width="1897" height="399" key="GridCell.Tab.1.right/0.27.1920.1053@0.27.1920.1053" timestamp="1605104607988" />
+  </component>
+</project>

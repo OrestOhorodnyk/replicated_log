@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+
+  master:
+    build:
+       context: ./master
+       dockerfile: Dockerfile
+    ports:
+      - "${MY_DOCKER_IP:-127.0.0.1}:8000:8000"
+
+  secondary-1:
+    build:
+       context: ./secondary
+       dockerfile: Dockerfile
+    ports:
+      - "${MY_DOCKER_IP:-127.0.0.1}:8001:8000"
+
+  secondary-2:
+    build:
+       context: ./secondary
+       dockerfile: Dockerfile
+    ports:
+      - "${MY_DOCKER_IP:-127.0.0.1}:8002:8000"
+
+  secondary-3:
+    build:
+       context: ./secondary
+       dockerfile: Dockerfile
+    ports:
+      - "${MY_DOCKER_IP:-127.0.0.1}:8003:8000"
