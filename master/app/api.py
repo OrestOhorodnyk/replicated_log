@@ -1,15 +1,16 @@
 from fastapi import APIRouter
 
-from app.msg_manager import MsgManager
-from app.models.message import Message
 from app.Replicator import replicate_message
+from app.models.message import Message
+from app.msg_manager import MsgManager
+
 router = APIRouter()
 msg_manager = MsgManager()
 
 
-@router.get("/")
-async def read_root():
-    return {"Hello": "World"}
+@router.get("/status")
+async def status():
+    return {"status": "OK"}
 
 
 @router.get("/list_msg")
