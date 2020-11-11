@@ -1,7 +1,7 @@
 ## Prerequisites
-1) Docker and docker-compose instaled
-2) porst 8000-8003 are free
-3) jq instaled (not mandatory, just to pritify the curl response)
+1) Docker and docker-compose installed
+2) ports 8000-8003 are free
+3) jq installed (not mandatory, just to prettify the curl response)
 
 ## Build containers:
 ``cd replicated_log``
@@ -12,7 +12,9 @@
 
 ## Check the status
 ``docker-compose ps``
+
 Output example:
+
 ``
             Name                    Command         State            Ports          
 ------------------------------------------------------------------------------------
@@ -21,6 +23,25 @@ replicated_log_secondary-1_1   python -m app.main   Up      127.0.0.1:8001->8000
 replicated_log_secondary-2_1   python -m app.main   Up      127.0.0.1:8002->8000/tcp
 replicated_log_secondary-3_1   python -m app.main   Up      127.0.0.1:8003->8000/tcp
 ``
+
+# Use the Swagger ui 
+
+## Post a message:
+* Open in browser the following link:
+``http://127.0.0.1:8001/docs#/default/append_msg_append_msg_post``
+* Click on the '**Try it out**' button
+* insert in the body section the following body:
+``
+{
+"message" : "some message text"
+}
+``
+## Get messages from a master node:
+``http://127.0.0.1:8001/docs#/default/list_msg_list_msg_get``
+
+
+
+# Use a terminal 
 
 ## Post a message:
 ``curl --request POST 'http://0.0.0.0:8000/append_msg' --data-raw '{"message": "some text of the message"}' | jq '.'``
