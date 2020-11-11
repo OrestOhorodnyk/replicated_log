@@ -17,7 +17,7 @@ async def list_msg():
     return msg_manager.get_messages()
 
 
-@router.post("/append_msg")
+@router.post("/append_msg", status_code=201)
 async def append_msg(msg: dict):
     message = Message(msg.get("message"))
     msg_manager.add_msg(message)
