@@ -28,7 +28,7 @@ replicated_log_secondary-3_1   python -m app.main   Up      127.0.0.1:8003->8000
 
 ## Post a message:
 * Open in browser the following link:
-``http://127.0.0.1:8001/docs#/default/append_msg_append_msg_post``
+``http://127.0.0.1:8000/docs#/default/append_msg_append_msg_post``
 * Click on the '**Try it out**' button
 * insert in the body section the following body:
 ``
@@ -37,9 +37,9 @@ replicated_log_secondary-3_1   python -m app.main   Up      127.0.0.1:8003->8000
 }
 ``
 ## Get messages from a master node:
-``http://127.0.0.1:8001/docs#/default/list_msg_list_msg_get``
+``http://127.0.0.1:8000/docs#/default/list_msg_list_msg_get``
 
-
+To get the list of messages from secondary nodes, just use the curl from abou but replase the port with one of 8001-8003
 
 # Use a terminal 
 
