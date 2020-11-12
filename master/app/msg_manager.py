@@ -1,5 +1,5 @@
 import logging
-from app.models.message import Message
+from app.models.message import MessageOut
 
 logger = logging.getLogger(__name__)
 
@@ -12,7 +12,7 @@ class MsgManager:
             cls.instance = super(MsgManager, cls).__new__(cls)
         return cls.instance
 
-    def add_msg(self, msg: Message):
+    def add_msg(self, msg: MessageOut):
         self.__messages.append(msg)
         logger.info(f'message added: "{msg}"')
 

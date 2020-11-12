@@ -2,5 +2,6 @@ fastapi==0.61.2
 uvicorn==0.12.2
 loguru~=0.5.3
 
-requests~=2.24.0
+requests~=2.25.0
 dataclasses-json~=0.5.2
+pydantic~=1.7.2

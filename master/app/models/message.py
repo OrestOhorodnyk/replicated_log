@@ -1,11 +1,11 @@
-from dataclasses import dataclass, field
-from datetime import datetime
-
-from dataclasses_json import dataclass_json
+from pydantic import BaseModel
 
 
-@dataclass_json
-@dataclass
-class Message:
+class MessageOut(BaseModel):
     message: str
-    created_at: str = field(init=False, default_factory=lambda: str(datetime.utcnow()))
+    created_at: str
+    
+    
+class MessageIn(BaseModel):
+    message: str
+
