@@ -1,5 +1,7 @@
-from fastapi import APIRouter
+import logging
 from datetime import datetime
+
+from fastapi import APIRouter
 
 from app.Replicator import replicate_message
 from app.models.message import MessageOut, MessageIn
@@ -7,6 +9,7 @@ from app.msg_manager import MsgManager
 
 router = APIRouter()
 msg_manager = MsgManager()
+logger = logging.getLogger(__name__)
 
 
 @router.get("/status")

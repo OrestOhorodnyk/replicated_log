@@ -3,5 +3,5 @@ uvicorn==0.12.2
 loguru~=0.5.3
 
 requests~=2.25.0
-dataclasses-json~=0.5.2
 pydantic~=1.7.2
+websockets==8.1

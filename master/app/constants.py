@@ -1,5 +1,9 @@
 SECONDARIES_NODES = [
-    "http://secondary-1:8000/append_msg",
-    "http://secondary-2:8000/append_msg",
-    "http://secondary-3:8000/append_msg",
+    # {"name": "secondary 1", "url": "ws://localhost:8001/append_msg"},
+    {"name": "secondary 1", "url": "ws://secondary-1:8000/append_msg"},
+    {"name": "secondary 2", "url": "ws://secondary-2:8000/append_msg"},
+    {"name": "secondary 3", "url": "ws://secondary-3:8000/append_msg"},
 ]
+
+MESSAGE_REPLICATION_STATUS_FAILED = "failed"
+MESSAGE_REPLICATION_STATUS_OK = "OK"

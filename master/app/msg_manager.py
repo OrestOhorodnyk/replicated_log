@@ -14,7 +14,7 @@ class MsgManager:
 
     def add_msg(self, msg: MessageOut):
         self.__messages.append(msg)
-        logger.info(f'message added: "{msg}"')
+        logger.info(f'Message added to master node: "{msg}"')
 
     def get_messages(self) -> list:
         return self.__messages
