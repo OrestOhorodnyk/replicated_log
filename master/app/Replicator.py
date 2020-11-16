@@ -1,6 +1,6 @@
 import json
 import logging
-
+import asyncio
 import websockets
 from fastapi import HTTPException
 
@@ -11,21 +11,26 @@ logger = logging.getLogger(__name__)
 
 
 async def replicate_message(message: MessageOut):
-    for node in SECONDARIES_NODES:
-        acknowledgment = None
+    tasks = [send_to_secondary_nodes(node, message) for node in SECONDARIES_NODES]
+
+    for task in asyncio.as_completed(tasks):
+        res = {}
         try:
-            acknowledgment = await send_to_secondary_nodes(node["url"], message)
+            res = await task
+            logger.info(res)
         except Exception as e:
             logger.error(e)
         finally:
-            if acknowledgment != MESSAGE_REPLICATION_STATUS_OK:
-                logger.error(f"Failed to replicate message to {node['name']}, message {message}")
-                raise HTTPException(status_code=500, detail=f"Failed replicate message {message} to {node['name']}.")
+            if res.get('acknowledgment') != MESSAGE_REPLICATION_STATUS_OK:
+                logger.error(f"Failed to replicate message: {message}")
+                raise HTTPException(status_code=500, detail=f"Failed replicate message: {message}.")
 
 
-async def send_to_secondary_nodes(uri: str, msg: MessageOut) -> str:
-    async with websockets.connect(uri) as websocket:
-        logger.info("Connected..")
+async def send_to_secondary_nodes(node: dict, msg: MessageOut) -> dict:
+    logger.info(f"Connecting to {node['name']} ...")
+    async with websockets.connect(node["url"]) as websocket:
+        logger.info(f"Successfully connected to node: {node['name']}")
         await websocket.send(json.dumps(msg.dict()))
         acknowledgment = await websocket.recv()
-        return acknowledgment
+
+        return {"node_name": node["name"], "acknowledgment": acknowledgment}

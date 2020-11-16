@@ -29,3 +29,10 @@ services:
        dockerfile: Dockerfile
     ports:
       - "${MY_DOCKER_IP:-127.0.0.1}:8003:8000"
+
+  sleepy-secondary:
+    build:
+       context: ./sleepy-secondary-node
+       dockerfile: Dockerfile
+    ports:
+      - "${MY_DOCKER_IP:-127.0.0.1}:8004:8000"

@@ -1,0 +1,17 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+fastapi = "==0.61.2"
+uvicorn = "==0.12.2"
+loguru = "*"
+requests = "==2.24.0"
+websockets = "==8.1"
+
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"
