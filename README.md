@@ -4,8 +4,8 @@
 3) jq installed (not mandatory, just to prettify the curl response)
 
 ## Build containers:
-``cd replicated_log``
-``docker-compose build``
+* ``cd replicated_log``
+* ``docker-compose build``
 
 ## Run container
 ``docker-compose up -d``
