@@ -8,10 +8,10 @@
 * ``docker-compose build``
 
 ## Run container
-``docker-compose up -d``
+* ``docker-compose up -d``
 
 ## Check the status
-``docker-compose ps``
+* ``docker-compose ps``
 
 Output example:
 
