@@ -1,7 +1,7 @@
 ## Prerequisites
-1) Docker and docker-compose installed
-2) ports 8000-8003 are free
-3) jq installed (not mandatory, just to prettify the curl response)
+l. Docker and docker-compose installed
+i. ports 8000-8003 are free
+l. jq installed (not mandatory, just to prettify the curl response)
 
 ## Build containers:
 * ``cd replicated_log``
@@ -31,11 +31,11 @@ replicated_log_secondary-3_1   python -m app.main   Up      127.0.0.1:8003->8000
 ``http://127.0.0.1:8000/docs#/default/append_msg_append_msg_post``
 * Click on the '**Try it out**' button
 * insert in the body section the following body:
-``
+```json
 {
-"message" : "some message text"
+    "message" : "some message text"
 }
-``
+```
 ## Get messages from a master node:
 ``http://127.0.0.1:8000/docs#/default/list_msg_list_msg_get``
 
@@ -48,10 +48,10 @@ To get the list of messages from secondary nodes, just use the curl from above b
 
 Output example:
 
-```
+```json
   {
-    "message": "some text of the message", # text of the message
-    "created_at": "2020-11-11 17:06:19.117630" # the message creation timestamp
+    "message": "some text of the message", 
+    "created_at": "2020-11-11 17:06:19.117630" 
   }
 ```
 
@@ -59,11 +59,11 @@ Output example:
 ``curl --location --request GET 'http://0.0.0.0:8000/list_msg' | jq '.'``
 Output example:
 
-```
+```json
 [
   {
-    "message": "some text of the message", # text of the message
-    "created_at": "2020-11-11 17:06:19.117630" # the message creation timestamp
+    "message": "some text of the message", 
+    "created_at": "2020-11-11 17:06:19.117630" 
   }
 ]
 ```
