@@ -1,6 +1,7 @@
+import asyncio
 import json
 import logging
-import asyncio
+
 import websockets
 from fastapi import HTTPException
 

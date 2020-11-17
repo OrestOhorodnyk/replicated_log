@@ -1,15 +1,15 @@
 import logging
-from app.message_model import Message
+from app.models.message import Message
 
 logger = logging.getLogger(__name__)
 
 
-class MsgManager(object):
+class MsgList(object):
     __messages = []
 
     def __new__(cls):
         if not hasattr(cls, 'instance'):
-            cls.instance = super(MsgManager, cls).__new__(cls)
+            cls.instance = super(MsgList, cls).__new__(cls)
         return cls.instance
 
     def add_msg(self, msg: Message):

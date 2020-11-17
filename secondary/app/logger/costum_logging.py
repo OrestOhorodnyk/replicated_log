@@ -3,8 +3,10 @@
 import logging
 import sys
 from pathlib import Path
+
 from loguru import logger
-import json
+
+from app.logger.logging_config import config
 
 
 class InterceptHandler(logging.Handler):
@@ -38,12 +40,11 @@ class InterceptHandler(logging.Handler):
 class CustomizeLogger:
 
     @classmethod
-    def make_logger(cls, config_path: Path):
-        config = cls.load_logging_config(config_path)
+    def make_logger(cls):
         logging_config = config.get('logger')
 
         logger = cls.customize_logging(
-            logging_config.get('path'),
+            filepath=logging_config.get('path'),
             level=logging_config.get('level'),
             retention=logging_config.get('retention'),
             rotation=logging_config.get('rotation'),
@@ -86,10 +87,3 @@ class CustomizeLogger:
             _logger.handlers = [InterceptHandler()]
 
         return logger.bind(request_id=None, method=None)
-
-    @classmethod
-    def load_logging_config(cls, config_path):
-        config = None
-        with open(config_path) as config_file:
-            config = json.load(config_file)
-        return config
