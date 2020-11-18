@@ -1,7 +1,7 @@
 ## Prerequisites
-l. Docker and docker-compose installed
-i. ports 8000-8003 are free
-l. jq installed (not mandatory, just to prettify the curl response)
+* Docker and docker-compose installed
+* ports 8000-8003 are free
+* jq installed (not mandatory, just to prettify the curl response)
 
 ## Build containers:
 * ``cd replicated_log``
