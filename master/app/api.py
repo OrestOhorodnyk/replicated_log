@@ -1,9 +1,16 @@
 import logging
 from datetime import datetime
 
-from fastapi import APIRouter
+from fastapi import (
+    APIRouter,
+    HTTPException,
+)
 
 from app.Replicator import replicate_message
+from app.constants import (
+    SECONDARIES_NODES,
+    NUMBER_OF_MASTER_NODES,
+)
 from app.models.message import MessageOut, MessageIn
 from app.msg_list import MsgList
 
@@ -30,6 +37,10 @@ async def list_size():
 @router.post("/append_msg", status_code=201, response_model=MessageOut)
 async def append_msg(msg: MessageIn):
     message = MessageOut(message=msg.message, created_at=str(datetime.utcnow()))
+    if msg.write_concern > (len(SECONDARIES_NODES) + NUMBER_OF_MASTER_NODES) or msg.write_concern <= 0:
+        raise HTTPException(status_code=400,
+                            detail=f"Incorrect wright concern, can't replicate message to {msg.write_concern} nodes, "
+                                   f"{len(SECONDARIES_NODES) + NUMBER_OF_MASTER_NODES} nodes are available.")
     msg_list.add_msg(message)
-    await replicate_message(message)
+    await replicate_message(message, msg.write_concern)
     return message

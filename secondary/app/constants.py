@@ -1,2 +1,5 @@
+import os
+
 MESSAGE_REPLICATION_STATUS_FAILED = "failed"
 MESSAGE_REPLICATION_STATUS_OK = "OK"
+DELAY = int(os.environ.get('DELAY', 0))
