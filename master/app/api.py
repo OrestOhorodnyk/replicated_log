@@ -7,7 +7,7 @@ from fastapi import (
     BackgroundTasks,
 )
 
-from app.Replicator import (
+from app.replicator import (
     replicate_to_minimum_required_nodes,
     replicate_to_the_rest_of_nodes,
 )

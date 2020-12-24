@@ -9,8 +9,10 @@ from app.constants import (
     SECONDARIES_NODES,
     MESSAGE_REPLICATION_STATUS_OK,
     NUMBER_OF_MASTER_NODES,
+    NUMBER_OF_RETRY_TO_REPLICATE_MESSAGE,
 )
 from app.models.message import MessageOut
+from app.utils import retry
 
 logger = logging.getLogger(__name__)
 
@@ -40,6 +42,7 @@ def replicate_to_the_rest_of_nodes(message: MessageOut, write_concern: int, back
         background_tasks.add_task(send_to_secondary_nodes, secondary, message)
 
 
+@retry(times=NUMBER_OF_RETRY_TO_REPLICATE_MESSAGE)
 async def send_to_secondary_nodes(node: dict, msg: MessageOut) -> dict:
     logger.info(f"Connecting to {node['name']} ...")
     async with websockets.connect(node["url"]) as websocket:
