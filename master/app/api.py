@@ -17,6 +17,7 @@ from app.constants import (
 )
 from app.models.message import MessageOut, MessageIn
 from app.msg_list import MsgList
+from app.utils import ID_GENERATOR
 
 router = APIRouter()
 msg_list = MsgList()
@@ -40,7 +41,11 @@ async def list_size():
 
 @router.post("/append_msg", status_code=201, response_model=MessageOut)
 async def append_msg(msg: MessageIn, background_tasks: BackgroundTasks):
-    message = MessageOut(message=msg.message, created_at=str(datetime.utcnow()))
+    message = MessageOut(
+        id=next(ID_GENERATOR),
+        message=msg.message,
+        created_at=str(datetime.utcnow())
+    )
     if msg.write_concern > (len(SECONDARIES_NODES) + NUMBER_OF_MASTER_NODES) or msg.write_concern <= 0:
         raise HTTPException(
             status_code=400,

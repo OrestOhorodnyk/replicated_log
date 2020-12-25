@@ -2,7 +2,7 @@ import asyncio
 import json
 import logging
 from typing import List
-
+import random
 from fastapi import APIRouter
 from app.constants import DELAY
 from app.constants import MESSAGE_REPLICATION_STATUS_OK
@@ -31,7 +31,8 @@ async def append_msg(websocket):
     msg_txt = await websocket.receive_text()
     msg_json = json.loads(msg_txt)
     message = Message(**msg_json)
-    await asyncio.sleep(DELAY)
+    # await asyncio.sleep(DELAY)
+    await asyncio.sleep(random.randrange(1, 10))
     msg_list.add_msg(message)
     await websocket.send_text(MESSAGE_REPLICATION_STATUS_OK)
     await websocket.close()

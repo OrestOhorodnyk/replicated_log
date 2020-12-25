@@ -1,7 +1,7 @@
-fastapi==0.61.2
-uvicorn==0.12.2
-loguru~=0.5.3
+fastapi
+uvicorn
+loguru
 
-requests~=2.25.0
-pydantic~=1.7.2
-websockets==8.1
+requests
+pydantic
+websockets

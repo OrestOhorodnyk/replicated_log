@@ -21,18 +21,23 @@ async def replicate_to_minimum_required_nodes(message: MessageOut, write_concern
     replication_number = write_concern - NUMBER_OF_MASTER_NODES  # message already in master
 
     tasks = [send_to_secondary_nodes(secondary, message) for secondary in SECONDARIES_NODES[:replication_number]]
-
+    acknowledgment_count = 0
     for task in asyncio.as_completed(tasks):
         res = {}
         try:
             res = await task
+            if res.get('acknowledgment') == MESSAGE_REPLICATION_STATUS_OK:
+                acknowledgment_count += 1
             logger.info(res)
         except Exception as e:
             logger.error(e)
-        finally:
-            if res.get('acknowledgment') != MESSAGE_REPLICATION_STATUS_OK:
-                logger.error(f"Failed to replicate message: {message}")
-                raise HTTPException(status_code=500, detail=f"Failed replicate message: {message}.")
+            pass
+
+    if acknowledgment_count != len(tasks):
+        logger.error(
+            f"Failed replicate message: {message}, "
+            f"acknowledgment_count: {acknowledgment_count}, nodes to replicate {len(tasks)} ")
+        raise HTTPException(status_code=500, detail=f"Failed replicate message: {message}.")
 
 
 def replicate_to_the_rest_of_nodes(message: MessageOut, write_concern: int, background_tasks: BackgroundTasks):

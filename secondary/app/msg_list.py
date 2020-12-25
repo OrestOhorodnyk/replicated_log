@@ -1,10 +1,11 @@
 import logging
+import bisect
 from app.models.message import Message
 
 logger = logging.getLogger(__name__)
 
 
-class MsgList(object):
+class MsgList:
     __messages = []
 
     def __new__(cls):
@@ -13,8 +14,11 @@ class MsgList(object):
         return cls.instance
 
     def add_msg(self, msg: Message):
-        self.__messages.append(msg)
-        logger.info(f'message added: "{msg}"')
+        if msg not in self.__messages:
+            bisect.insort(self.__messages, msg)
+            logger.info(f'Message added: "{msg}"')
+        else:
+            logger.info(f'Message already exist: "{msg}"')
 
     def get_messages(self) -> list:
         return self.__messages

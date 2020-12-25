@@ -1,5 +1,5 @@
 import logging
-
+import bisect
 from app.models.message import MessageOut
 
 logger = logging.getLogger(__name__)
@@ -14,8 +14,11 @@ class MsgList:
         return cls.instance
 
     def add_msg(self, msg: MessageOut):
-        self.__messages.append(msg)
-        logger.info(f'Message added to master node: "{msg}"')
+        if msg not in self.__messages:
+            bisect.insort(self.__messages, msg)
+            logger.info(f'Message added to master node: "{msg}"')
+        else:
+            logger.info(f'Message already exist on master node: "{msg}"')
 
     def get_messages(self) -> list:
         return self.__messages
