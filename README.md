@@ -32,6 +32,7 @@ replicated_log_secondary-2_1   python -m app.main   Up      127.0.0.1:8002->8000
 * insert in the body section the following body:
 ```json
 {
+	"id": 1, # optional argument for testing orderind and deduplication functionality, if not provided, system will assing an id
     "message" : "some message text",
      "write_concern": 3
 }
@@ -50,6 +51,7 @@ Output example:
 
 ```json
   {
+  	"id": 1, # optional argument for testing orderind and deduplication functionality, if not provided, system will assing an id
     "message": "some text of the message", 
     "created_at": "2020-11-11 17:06:19.117630" 
   }
@@ -62,6 +64,7 @@ Output example:
 ```json
 [
   {
+  	"id":1,
     "message": "some text of the message", 
     "created_at": "2020-11-11 17:06:19.117630" 
   }
