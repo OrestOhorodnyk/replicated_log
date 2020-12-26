@@ -51,7 +51,7 @@ Output example:
 
 ```json
   {
-  	"id": 1, # optional argument for testing orderind and deduplication functionality, if not provided, system will assing an id
+    "id": 1, # optional argument for testing orderind and deduplication functionality, if not provided, system will assing an id
     "message": "some text of the message", 
     "created_at": "2020-11-11 17:06:19.117630" 
   }
@@ -64,7 +64,7 @@ Output example:
 ```json
 [
   {
-  	"id":1,
+    "id":1,
     "message": "some text of the message", 
     "created_at": "2020-11-11 17:06:19.117630" 
   }
