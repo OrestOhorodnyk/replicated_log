@@ -16,7 +16,7 @@ logger = logging.getLogger(__name__)
 
 @router.get("/status")
 async def status():
-    return {"status": "OK"}
+    return {"status": "Healthy"}
 
 
 @router.get("/list_msg", status_code=200, response_model=List[Message])
@@ -31,8 +31,8 @@ async def append_msg(websocket):
     msg_txt = await websocket.receive_text()
     msg_json = json.loads(msg_txt)
     message = Message(**msg_json)
-    # await asyncio.sleep(DELAY)
-    await asyncio.sleep(random.randrange(1, 10))
+    await asyncio.sleep(DELAY)
+    # await asyncio.sleep(random.randrange(1, 10))
     msg_list.add_msg(message)
     await websocket.send_text(MESSAGE_REPLICATION_STATUS_OK)
     await websocket.close()

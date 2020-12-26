@@ -18,6 +18,7 @@ from app.constants import (
 from app.models.message import MessageOut, MessageIn
 from app.msg_list import MsgList
 from app.utils import ID_GENERATOR
+from app.node.status_checker import check_quorum
 
 router = APIRouter()
 msg_list = MsgList()
@@ -26,6 +27,18 @@ logger = logging.getLogger(__name__)
 
 @router.get("/status")
 async def status():
+    node_statuses = {}
+    for node in SECONDARIES_NODES:
+        node_statuses[node['name']] = {
+            'status': node['status'],
+            'url': node['url']
+        }
+        node_statuses.update({"master": {"status": "Healthy"}})
+    return node_statuses
+
+
+@router.get("/cluster-health")
+async def cluster_health():
     return {"status": "OK"}
 
 
@@ -41,8 +54,9 @@ async def list_size():
 
 @router.post("/append_msg", status_code=201, response_model=MessageOut)
 async def append_msg(msg: MessageIn, background_tasks: BackgroundTasks):
+    check_quorum()
     message = MessageOut(
-        id=next(ID_GENERATOR),
+        id=msg.id if msg.id else next(ID_GENERATOR),
         message=msg.message,
         created_at=str(datetime.utcnow())
     )

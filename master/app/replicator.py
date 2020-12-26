@@ -50,7 +50,7 @@ def replicate_to_the_rest_of_nodes(message: MessageOut, write_concern: int, back
 @retry(times=NUMBER_OF_RETRY_TO_REPLICATE_MESSAGE)
 async def send_to_secondary_nodes(node: dict, msg: MessageOut) -> dict:
     logger.info(f"Connecting to {node['name']} ...")
-    async with websockets.connect(node["url"]) as websocket:
+    async with websockets.connect(f'ws://{node["url"]}/append_msg') as websocket:
         logger.info(f"Successfully connected to node: {node['name']}")
         await websocket.send(json.dumps(msg.dict()))
         acknowledgment = await websocket.recv()

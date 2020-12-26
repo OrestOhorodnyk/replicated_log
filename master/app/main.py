@@ -5,6 +5,7 @@ from fastapi import FastAPI
 
 from app.api import router
 from app.logger.costum_logging import CustomizeLogger
+from app.node.status_checker import router_node
 
 logger = logging.getLogger(__name__)
 
@@ -14,6 +15,7 @@ def create_app() -> FastAPI:
     logger = CustomizeLogger.make_logger()
     app.logger = logger
     app.include_router(router)
+    app.include_router(router_node)
     return app
 
 

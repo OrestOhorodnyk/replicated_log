@@ -1,4 +1,6 @@
-from pydantic import BaseModel
+from typing import Optional
+
+from pydantic import BaseModel, Field
 
 
 class MessageOut(BaseModel):
@@ -7,7 +9,7 @@ class MessageOut(BaseModel):
     created_at: str
 
     def __key(self):
-        return self.id, self.message
+        return self.id
 
     def __eq__(self, other):
         if isinstance(other, MessageOut):
@@ -22,5 +24,8 @@ class MessageOut(BaseModel):
 
 
 class MessageIn(BaseModel):
+    id: Optional[int] = Field(
+        None, title="Id to use in message for ordering and deduplication"
+    )
     message: str
     write_concern: int

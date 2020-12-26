@@ -25,7 +25,7 @@ services:
        dockerfile: Dockerfile
     environment:
       #delay on adding messages in seconds 
-      - DELAY=10
+      - DELAY=0
     ports:
       - "${MY_DOCKER_IP:-127.0.0.1}:8002:8000"
 

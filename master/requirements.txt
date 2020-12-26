@@ -5,3 +5,6 @@ loguru
 requests
 pydantic
 websockets
+aiohttp
+chardet==3.0.4
+fastapi-utils
