@@ -32,9 +32,9 @@ replicated_log_secondary-2_1   python -m app.main   Up      127.0.0.1:8002->8000
 * insert in the body section the following body:
 ```json
 {
-	"id": 1, # optional argument for testing orderind and deduplication functionality, if not provided, system will assing an id
+    "id": 1, # optional argument for testing orderind and deduplication functionality, if not provided, system will assing an id
     "message" : "some message text",
-     "write_concern": 3
+    "write_concern": 3
 }
 ```
 ## Get messages from a master node:
