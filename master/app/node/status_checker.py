@@ -35,7 +35,7 @@ async def get_node_status():
                 logger.debug(f'node name: {node["name"]}, status {resp}')
                 resp_json = json.loads(resp)
                 node['status'] = resp_json['status']
-                logger.info(SECONDARIES_NODES)
+                logger.debug(SECONDARIES_NODES)
         except ClientConnectorError as error:
             logger.error(error)
             if node['status'] == 'Healthy':
@@ -46,7 +46,7 @@ async def get_node_status():
 
 def check_quorum():
     for node in SECONDARIES_NODES:
-        if node['status'] != 'Healthy':
+        if node['status'] != 'Healthy' and node['required']:
             raise HTTPException(
                 status_code=500,
                 detail=f"One or more nodes unavailable at the moment, please try again later"
